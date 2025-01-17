@@ -1,0 +1,680 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+PART A: QUESTION 1,2,3,4,5
+
+mysql> create database Technology;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use technology;
+Database changed
+mysql> create table client_masters(clientNO int(10),Name varchar(20),Adress varchar(40),city varchar(30),state varchar(20),bal_due varchar(22));
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+mysql> insert into client_masters values("100","Igihozo","Huye","kigali","Rwanda","7000");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into client_masters values("101","Isimbi","Gicumbi","Musanze","Uganda","5000");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into client_masters values("101","Mucyo","Gakenye","Rulindo","Burundi","8000");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into client_masters values("102","Mutoni","Rwamagana","Remera","Gikondo","9000");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into client_masters values("103","Muhoza","Ruhango","Muhanga","gatsibo","96000");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from client_masters;
++----------+---------+-----------+---------+---------+---------+
+| clientNO | Name    | Adress    | city    | state   | bal_due |
++----------+---------+-----------+---------+---------+---------+
+|      100 | Igihozo | Huye      | kigali  | Rwanda  | 7000    |
+|      101 | Isimbi  | Gicumbi   | Musanze | Uganda  | 5000    |
+|      101 | Mucyo   | Gakenye   | Rulindo | Burundi | 8000    |
+|      102 | Mutoni  | Rwamagana | Remera  | Gikondo | 9000    |
+|      103 | Muhoza  | Ruhango   | Muhanga | gatsibo | 96000   |
++----------+---------+-----------+---------+---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select*from client_masters where bal_due>5000;
++----------+---------+-----------+---------+---------+---------+
+| clientNO | Name    | Adress    | city    | state   | bal_due |
++----------+---------+-----------+---------+---------+---------+
+|      100 | Igihozo | Huye      | kigali  | Rwanda  | 7000    |
+|      101 | Mucyo   | Gakenye   | Rulindo | Burundi | 8000    |
+|      102 | Mutoni  | Rwamagana | Remera  | Gikondo | 9000    |
+|      103 | Muhoza  | Ruhango   | Muhanga | gatsibo | 96000   |
++----------+---------+-----------+---------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> update client_masters set bal_due="Rs.5100" where clientNO="c123";
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 1
+
+mysql> select*from client_masters;
++----------+---------+-----------+---------+---------+---------+
+| clientNO | Name    | Adress    | city    | state   | bal_due |
++----------+---------+-----------+---------+---------+---------+
+|      100 | Igihozo | Huye      | kigali  | Rwanda  | 7000    |
+|      101 | Isimbi  | Gicumbi   | Musanze | Uganda  | 5000    |
+|      101 | Mucyo   | Gakenye   | Rulindo | Burundi | 8000    |
+|      102 | Mutoni  | Rwamagana | Remera  | Gikondo | 9000    |
+|      103 | Muhoza  | Ruhango   | Muhanga | gatsibo | 96000   |
++----------+---------+-----------+---------+---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> alter table client_masters rename to client12;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select*from client12;
++----------+---------+-----------+---------+---------+---------+
+| clientNO | Name    | Adress    | city    | state   | bal_due |
++----------+---------+-----------+---------+---------+---------+
+|      100 | Igihozo | Huye      | kigali  | Rwanda  | 7000    |
+|      101 | Isimbi  | Gicumbi   | Musanze | Uganda  | 5000    |
+|      101 | Mucyo   | Gakenye   | Rulindo | Burundi | 8000    |
+|      102 | Mutoni  | Rwamagana | Remera  | Gikondo | 9000    |
+|      103 | Muhoza  | Ruhango   | Muhanga | gatsibo | 96000   |
++----------+---------+-----------+---------+---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> alter table client12 change bal_due BALANCE varchar(30);
+Query OK, 5 rows affected (0.04 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select*from client12;
++----------+---------+-----------+---------+---------+---------+
+| clientNO | Name    | Adress    | city    | state   | BALANCE |
++----------+---------+-----------+---------+---------+---------+
+|      100 | Igihozo | Huye      | kigali  | Rwanda  | 7000    |
+|      101 | Isimbi  | Gicumbi   | Musanze | Uganda  | 5000    |
+|      101 | Mucyo   | Gakenye   | Rulindo | Burundi | 8000    |
+|      102 | Mutoni  | Rwamagana | Remera  | Gikondo | 9000    |
+|      103 | Muhoza  | Ruhango   | Muhanga | gatsibo | 96000   |
++----------+---------+-----------+---------+---------+---------+
+5 rows in set (0.00 sec)
+
+PART B:QUESTION 6
+
+
+mysql> create table DEPARTMENTS(id int(12),Name varchar(30),location varchar(20),Email varchar(18),telephone varchar(17));
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+mysql> insert into DEPARTMENTS values("10","Gabiro","Nyamagabe","gabiro@gmail.com","0731203859");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into DEPARTMENTS values("11","Muhoza","Nyarugenge","muhoza@gmail.com","0727802347");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into DEPARTMENTS values("12","Akeza","karenge","akeza@gmail.com","0723905782");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into DEPARTMENTS values("13","Rwego","karenge","rwego@gmail.com","0721940378");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into DEPARTMENTS values("14","Murenzi","kinyinya","murenzi@gmail.com","0724029175");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from DEPARTMENTS;
++------+---------+------------+-------------------+------------+
+| id   | Name    | location   | Email             | telephone  |
++------+---------+------------+-------------------+------------+
+|   10 | Gabiro  | Nyamagabe  | gabiro@gmail.com  | 0731203859 |
+|   11 | Muhoza  | Nyarugenge | muhoza@gmail.com  | 0727802347 |
+|   12 | Akeza   | karenge    | akeza@gmail.com   | 0723905782 |
+|   13 | Rwego   | karenge    | rwego@gmail.com   | 0721940378 |
+|   14 | Murenzi | kinyinya   | murenzi@gmail.com | 0724029175 |
++------+---------+------------+-------------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> create table EMPLOYEES1(id int(10),Name varchar(14),salary int(15),positon varchar(12),location varchar(20));
+Query OK, 0 rows affected, 2 warnings (0.02 sec)
+
+mysql> insert into EMPLOYEES1 values("111","Gasaro","5000","HRM","Ruhango");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EMPLOYEES1 values("112","Umurerwa","9000","Manager","Gicumbi");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EMPLOYEES1 values("113","Ishimwe","10000","Accountant","Gakenye");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EMPLOYEES1 values("114","Ashimwe","20000","Auditors","Musanze");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EMPLOYEES1 values("115","MUhoza","22000","Teacher","Gatsibo");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from EMPLOYEES1;
++------+----------+--------+------------+----------+
+| id   | Name     | salary | positon    | location |
++------+----------+--------+------------+----------+
+|  111 | Gasaro   |   5000 | HRM        | Ruhango  |
+|  112 | Umurerwa |   9000 | Manager    | Gicumbi  |
+|  113 | Ishimwe  |  10000 | Accountant | Gakenye  |
+|  114 | Ashimwe  |  20000 | Auditors   | Musanze  |
+|  115 | MUhoza   |  22000 | Teacher    | Gatsibo  |
++------+----------+--------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select distinct(id,Name,salary,position,location)from EMPLOYEES1;
+ERROR 1054 (42S22): Unknown column 'position' in 'field list'
+mysql> select*from DEPARTMENTS left join EMPLOYEES1 on DEPARTMENT.Name=EMPLOYEES1.Name;
+ERROR 1054 (42S22): Unknown column 'DEPARTMENT.Name' in 'on clause'
+mysql> select*from DEPARTMENTS left join EMPLOYEES1 on" DEPARTMENT.Name"="EMPLOYEES1.Name";
++------+---------+------------+-------------------+------------+------+------+--------+---------+----------+
+| id   | Name    | location   | Email             | telephone  | id   | Name | salary | positon | location |
++------+---------+------------+-------------------+------------+------+------+--------+---------+----------+
+|   10 | Gabiro  | Nyamagabe  | gabiro@gmail.com  | 0731203859 | NULL | NULL |   NULL | NULL    | NULL     |
+|   11 | Muhoza  | Nyarugenge | muhoza@gmail.com  | 0727802347 | NULL | NULL |   NULL | NULL    | NULL     |
+|   12 | Akeza   | karenge    | akeza@gmail.com   | 0723905782 | NULL | NULL |   NULL | NULL    | NULL     |
+|   13 | Rwego   | karenge    | rwego@gmail.com   | 0721940378 | NULL | NULL |   NULL | NULL    | NULL     |
+|   14 | Murenzi | kinyinya   | murenzi@gmail.com | 0724029175 | NULL | NULL |   NULL | NULL    | NULL     |
++------+---------+------------+-------------------+------------+------+------+--------+---------+----------+
+5 rows in set (0.00 sec)
+
+mysql> update EMPLOYEES1 set Name="Rwego";
+Query OK, 5 rows affected (0.00 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> update EMPLOYEES1 set Name="Rwego" where id="111";
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> update EMPLOYEES1 set Name="Murenzi" where id="112";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEES1 set Name="Igihozo" where id="113";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEES1 set Name="Akariza" where id="114";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEES1 set Name="Mucyo" where id="115";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from EMPLOYEES1;
++------+---------+--------+------------+----------+
+| id   | Name    | salary | positon    | location |
++------+---------+--------+------------+----------+
+|  111 | Rwego   |   5000 | HRM        | Ruhango  |
+|  112 | Murenzi |   9000 | Manager    | Gicumbi  |
+|  113 | Igihozo |  10000 | Accountant | Gakenye  |
+|  114 | Akariza |  20000 | Auditors   | Musanze  |
+|  115 | Mucyo   |  22000 | Teacher    | Gatsibo  |
++------+---------+--------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select*from DEPARTMENTS left join EMPLOYEES1 on DEPARTMENT.Name=EMPLOYEES1.Name;
+ERROR 1054 (42S22): Unknown column 'DEPARTMENT.Name' in 'on clause'
+mysql> select*from DEPARTMENTS left join EMPLOYEES1 on" DEPARTMENT.Name"="EMPLOYEES1.Name";
++------+---------+------------+-------------------+------------+------+------+--------+---------+----------+
+| id   | Name    | location   | Email             | telephone  | id   | Name | salary | positon | location |
++------+---------+------------+-------------------+------------+------+------+--------+---------+----------+
+|   10 | Gabiro  | Nyamagabe  | gabiro@gmail.com  | 0731203859 | NULL | NULL |   NULL | NULL    | NULL     |
+|   11 | Muhoza  | Nyarugenge | muhoza@gmail.com  | 0727802347 | NULL | NULL |   NULL | NULL    | NULL     |
+|   12 | Akeza   | karenge    | akeza@gmail.com   | 0723905782 | NULL | NULL |   NULL | NULL    | NULL     |
+|   13 | Rwego   | karenge    | rwego@gmail.com   | 0721940378 | NULL | NULL |   NULL | NULL    | NULL     |
+|   14 | Murenzi | kinyinya   | murenzi@gmail.com | 0724029175 | NULL | NULL |   NULL | NULL    | NULL     |
++------+---------+------------+-------------------+------------+------+------+--------+---------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select*from EMPLOYEES1 where salary>=5000;
++------+---------+--------+------------+----------+
+| id   | Name    | salary | positon    | location |
++------+---------+--------+------------+----------+
+|  111 | Rwego   |   5000 | HRM        | Ruhango  |
+|  112 | Murenzi |   9000 | Manager    | Gicumbi  |
+|  113 | Igihozo |  10000 | Accountant | Gakenye  |
+|  114 | Akariza |  20000 | Auditors   | Musanze  |
+|  115 | Mucyo   |  22000 | Teacher    | Gatsibo  |
++------+---------+--------+------------+----------+
+5 rows in set (0.00 sec)
+
+PART B:QUESTION 7
+
+
+
+mysql> create table DEPARTMENTS(id int(12),Name varchar(30),location varchar(20),Email varchar(18),telephone varchar(17));
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+mysql> insert into DEPARTMENTS values("10","Gabiro","Nyamagabe","gabiro@gmail.com","0731203859");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into DEPARTMENTS values("11","Muhoza","Nyarugenge","muhoza@gmail.com","0727802347");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into DEPARTMENTS values("12","Akeza","karenge","akeza@gmail.com","0723905782");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into DEPARTMENTS values("13","Rwego","karenge","rwego@gmail.com","0721940378");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into DEPARTMENTS values("14","Murenzi","kinyinya","murenzi@gmail.com","0724029175");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from DEPARTMENTS;
++------+---------+------------+-------------------+------------+
+| id   | Name    | location   | Email             | telephone  |
++------+---------+------------+-------------------+------------+
+|   10 | Gabiro  | Nyamagabe  | gabiro@gmail.com  | 0731203859 |
+|   11 | Muhoza  | Nyarugenge | muhoza@gmail.com  | 0727802347 |
+|   12 | Akeza   | karenge    | akeza@gmail.com   | 0723905782 |
+|   13 | Rwego   | karenge    | rwego@gmail.com   | 0721940378 |
+|   14 | Murenzi | kinyinya   | murenzi@gmail.com | 0724029175 |
++------+---------+------------+-------------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> create table EMPLOYEES1(id int(10),Name varchar(14),salary int(15),positon varchar(12),location varchar(20));
+Query OK, 0 rows affected, 2 warnings (0.02 sec)
+
+mysql> insert into EMPLOYEES1 values("111","Gasaro","5000","HRM","Ruhango");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EMPLOYEES1 values("112","Umurerwa","9000","Manager","Gicumbi");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EMPLOYEES1 values("113","Ishimwe","10000","Accountant","Gakenye");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EMPLOYEES1 values("114","Ashimwe","20000","Auditors","Musanze");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EMPLOYEES1 values("115","MUhoza","22000","Teacher","Gatsibo");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from EMPLOYEES1;
++------+----------+--------+------------+----------+
+| id   | Name     | salary | positon    | location |
++------+----------+--------+------------+----------+
+|  111 | Gasaro   |   5000 | HRM        | Ruhango  |
+|  112 | Umurerwa |   9000 | Manager    | Gicumbi  |
+|  113 | Ishimwe  |  10000 | Accountant | Gakenye  |
+|  114 | Ashimwe  |  20000 | Auditors   | Musanze  |
+|  115 | MUhoza   |  22000 | Teacher    | Gatsibo  |
++------+----------+--------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select distinct(id,Name,salary,position,location)from EMPLOYEES1;
+ERROR 1054 (42S22): Unknown column 'position' in 'field list'
+mysql> select*from DEPARTMENTS left join EMPLOYEES1 on DEPARTMENT.Name=EMPLOYEES1.Name;
+ERROR 1054 (42S22): Unknown column 'DEPARTMENT.Name' in 'on clause'
+mysql> select*from DEPARTMENTS left join EMPLOYEES1 on" DEPARTMENT.Name"="EMPLOYEES1.Name";
++------+---------+------------+-------------------+------------+------+------+--------+---------+----------+
+| id   | Name    | location   | Email             | telephone  | id   | Name | salary | positon | location |
++------+---------+------------+-------------------+------------+------+------+--------+---------+----------+
+|   10 | Gabiro  | Nyamagabe  | gabiro@gmail.com  | 0731203859 | NULL | NULL |   NULL | NULL    | NULL     |
+|   11 | Muhoza  | Nyarugenge | muhoza@gmail.com  | 0727802347 | NULL | NULL |   NULL | NULL    | NULL     |
+|   12 | Akeza   | karenge    | akeza@gmail.com   | 0723905782 | NULL | NULL |   NULL | NULL    | NULL     |
+|   13 | Rwego   | karenge    | rwego@gmail.com   | 0721940378 | NULL | NULL |   NULL | NULL    | NULL     |
+|   14 | Murenzi | kinyinya   | murenzi@gmail.com | 0724029175 | NULL | NULL |   NULL | NULL    | NULL     |
++------+---------+------------+-------------------+------------+------+------+--------+---------+----------+
+5 rows in set (0.00 sec)
+
+mysql> update EMPLOYEES1 set Name="Rwego";
+Query OK, 5 rows affected (0.00 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> update EMPLOYEES1 set Name="Rwego" where id="111";
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> update EMPLOYEES1 set Name="Murenzi" where id="112";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEES1 set Name="Igihozo" where id="113";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEES1 set Name="Akariza" where id="114";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEES1 set Name="Mucyo" where id="115";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from EMPLOYEES1;
++------+---------+--------+------------+----------+
+| id   | Name    | salary | positon    | location |
++------+---------+--------+------------+----------+
+|  111 | Rwego   |   5000 | HRM        | Ruhango  |
+|  112 | Murenzi |   9000 | Manager    | Gicumbi  |
+|  113 | Igihozo |  10000 | Accountant | Gakenye  |
+|  114 | Akariza |  20000 | Auditors   | Musanze  |
+|  115 | Mucyo   |  22000 | Teacher    | Gatsibo  |
++------+---------+--------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select*from DEPARTMENTS left join EMPLOYEES1 on DEPARTMENT.Name=EMPLOYEES1.Name;
+ERROR 1054 (42S22): Unknown column 'DEPARTMENT.Name' in 'on clause'
+mysql> select*from DEPARTMENTS left join EMPLOYEES1 on" DEPARTMENT.Name"="EMPLOYEES1.Name";
++------+---------+------------+-------------------+------------+------+------+--------+---------+----------+
+| id   | Name    | location   | Email             | telephone  | id   | Name | salary | positon | location |
++------+---------+------------+-------------------+------------+------+------+--------+---------+----------+
+|   10 | Gabiro  | Nyamagabe  | gabiro@gmail.com  | 0731203859 | NULL | NULL |   NULL | NULL    | NULL     |
+|   11 | Muhoza  | Nyarugenge | muhoza@gmail.com  | 0727802347 | NULL | NULL |   NULL | NULL    | NULL     |
+|   12 | Akeza   | karenge    | akeza@gmail.com   | 0723905782 | NULL | NULL |   NULL | NULL    | NULL     |
+|   13 | Rwego   | karenge    | rwego@gmail.com   | 0721940378 | NULL | NULL |   NULL | NULL    | NULL     |
+|   14 | Murenzi | kinyinya   | murenzi@gmail.com | 0724029175 | NULL | NULL |   NULL | NULL    | NULL     |
++------+---------+------------+-------------------+------------+------+------+--------+---------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select*from EMPLOYEES1 where salary>=5000;
++------+---------+--------+------------+----------+
+| id   | Name    | salary | positon    | location |
++------+---------+--------+------------+----------+
+|  111 | Rwego   |   5000 | HRM        | Ruhango  |
+|  112 | Murenzi |   9000 | Manager    | Gicumbi  |
+|  113 | Igihozo |  10000 | Accountant | Gakenye  |
+|  114 | Akariza |  20000 | Auditors   | Musanze  |
+|  115 | Mucyo   |  22000 | Teacher    | Gatsibo  |
++------+---------+--------+------------+----------+
+5 rows in set (0.00 sec)
+
+PART C:QUESTION 9.
+
+mysql> create table EMPLOYEES2(Employee_Id int(12),First_name varchar(13),Last_name varchar(15),Email varchar(20),Phone_Number varchar(17),Hire_Date Date,Job_Id int(20),commission_pct varchar(18),Manager_Id int(19),Department_Id int(14));
+Query OK, 0 rows affected, 4 warnings (0.02 sec)
+
+mysql> insert into EMPLOYEES2 values("111","Tuyikunde","Ange","tuyikunde@gmail.com","0739013759","01/10/2000","10","20000","C2000","222","D11");
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into EMPLOYEES2 values("111","Tuyikunde","Ange","tuyikunde@gmail.com","0739013759","01/10/2000","10","C2000","222","D11");
+Query OK, 1 row affected, 2 warnings (0.00 sec)
+
+mysql> insert into EMPLOYEES2 values("112","Uwimana","carine","uwimana@gmail.com","07390145321","01/12/2001","11","C3000","333","D12");
+Query OK, 1 row affected, 2 warnings (0.00 sec)
+
+mysql> insert into EMPLOYEES2 values("113","Uwirora","Rebecca","uwirora@gmail.com","07234565321","05/11/2002","12","C4000","444","D13");
+Query OK, 1 row affected, 2 warnings (0.00 sec)
+
+mysql> insert into EMPLOYEES2 values("113","Uwirora","Rebecca","uwirora@gmail.com","07234565321","05/11/2002","12","C4000","444","D13");
+Query OK, 1 row affected, 2 warnings (0.00 sec)
+
+mysql> insert into EMPLOYEES2 values("114","Iganze","florance","iganze@gmail.com","0784903211","07/13/2004","13","C5000","445","D14");
+Query OK, 1 row affected, 2 warnings (0.00 sec)
+
+mysql> insert into EMPLOYEES2 values("115","Ishimwe","AUSTIN","ishimwe@gmail.com","07910234456","06/15/2005","20","C6000","455","D15");
+Query OK, 1 row affected, 2 warnings (0.00 sec)
+
+mysql> select*from EMPLOYEES2;
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+
+| Employee_Id | First_name | Last_name | Email               | Phone_Number | Hire_Date  | Job_Id | commission_pct | Manager_Id | Department_Id |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+
+|         111 | Tuyikunde  | Ange      | tuyikunde@gmail.com | 0739013759   | 0000-00-00 |     10 | C2000          |        222 |             0 |
+|         112 | Uwimana    | carine    | uwimana@gmail.com   | 07390145321  | 0000-00-00 |     11 | C3000          |        333 |             0 |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com   | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |             0 |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com   | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |             0 |
+|         114 | Iganze     | florance  | iganze@gmail.com    | 0784903211   | 0000-00-00 |     13 | C5000          |        445 |             0 |
+|         115 | Ishimwe    | AUSTIN    | ishimwe@gmail.com   | 07910234456  | 0000-00-00 |     20 | C6000          |        455 |             0 |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> alter table EMPLOYEES add salary int(19);
+ERROR 1146 (42S02): Table 'technology.employees' doesn't exist
+mysql> alter table EMPLOYEES2 add salary int(15);
+Query OK, 6 rows affected, 1 warning (0.04 sec)
+Records: 6  Duplicates: 0  Warnings: 1
+
+mysql> select*from EMPLOYEES2;
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+| Employee_Id | First_name | Last_name | Email               | Phone_Number | Hire_Date  | Job_Id | commission_pct | Manager_Id | Department_Id | salary |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+|         111 | Tuyikunde  | Ange      | tuyikunde@gmail.com | 0739013759   | 0000-00-00 |     10 | C2000          |        222 |             0 |   NULL |
+|         112 | Uwimana    | carine    | uwimana@gmail.com   | 07390145321  | 0000-00-00 |     11 | C3000          |        333 |             0 |   NULL |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com   | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |             0 |   NULL |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com   | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |             0 |   NULL |
+|         114 | Iganze     | florance  | iganze@gmail.com    | 0784903211   | 0000-00-00 |     13 | C5000          |        445 |             0 |   NULL |
+|         115 | Ishimwe    | AUSTIN    | ishimwe@gmail.com   | 07910234456  | 0000-00-00 |     20 | C6000          |        455 |             0 |   NULL |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> update EMPLOYEES2 set salary="100" where Job_Id="10";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEES2 set salary="4800" where Job_Id="11";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEES2 set salary="4900" where Job_Id="12";
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update EMPLOYEES2 set salary="5000" where Job_Id="13";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEES2 set salary="6000" where Job_Id="20";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from EMPLOYEES2;
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+| Employee_Id | First_name | Last_name | Email               | Phone_Number | Hire_Date  | Job_Id | commission_pct | Manager_Id | Department_Id | salary |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+|         111 | Tuyikunde  | Ange      | tuyikunde@gmail.com | 0739013759   | 0000-00-00 |     10 | C2000          |        222 |             0 |    100 |
+|         112 | Uwimana    | carine    | uwimana@gmail.com   | 07390145321  | 0000-00-00 |     11 | C3000          |        333 |             0 |   4800 |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com   | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |             0 |   4900 |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com   | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |             0 |   4900 |
+|         114 | Iganze     | florance  | iganze@gmail.com    | 0784903211   | 0000-00-00 |     13 | C5000          |        445 |             0 |   5000 |
+|         115 | Ishimwe    | AUSTIN    | ishimwe@gmail.com   | 07910234456  | 0000-00-00 |     20 | C6000          |        455 |             0 |   6000 |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select*from EMPLOYEES2 where Manager_id<=100;
+Empty set (0.00 sec)
+
+mysql> update EMPLOYEES2 set Manager_Id="90" where Job_Id="20";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEES2 set Manager_Id="80" where Job_Id="13";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEES2 set Manager_Id="70" where Job_Id="10";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from EMPLOYEES2;
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+| Employee_Id | First_name | Last_name | Email               | Phone_Number | Hire_Date  | Job_Id | commission_pct | Manager_Id | Department_Id | salary |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+|         111 | Tuyikunde  | Ange      | tuyikunde@gmail.com | 0739013759   | 0000-00-00 |     10 | C2000          |         70 |             0 |    100 |
+|         112 | Uwimana    | carine    | uwimana@gmail.com   | 07390145321  | 0000-00-00 |     11 | C3000          |        333 |             0 |   4800 |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com   | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |             0 |   4900 |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com   | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |             0 |   4900 |
+|         114 | Iganze     | florance  | iganze@gmail.com    | 0784903211   | 0000-00-00 |     13 | C5000          |         80 |             0 |   5000 |
+|         115 | Ishimwe    | AUSTIN    | ishimwe@gmail.com   | 07910234456  | 0000-00-00 |     20 | C6000          |         90 |             0 |   6000 |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select*from EMPLOYEES2 where Manager_id<=100;
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+| Employee_Id | First_name | Last_name | Email               | Phone_Number | Hire_Date  | Job_Id | commission_pct | Manager_Id | Department_Id | salary |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+|         111 | Tuyikunde  | Ange      | tuyikunde@gmail.com | 0739013759   | 0000-00-00 |     10 | C2000          |         70 |             0 |    100 |
+|         114 | Iganze     | florance  | iganze@gmail.com    | 0784903211   | 0000-00-00 |     13 | C5000          |         80 |             0 |   5000 |
+|         115 | Ishimwe    | AUSTIN    | ishimwe@gmail.com   | 07910234456  | 0000-00-00 |     20 | C6000          |         90 |             0 |   6000 |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> update EMPLOYEES2 set Department_Id="70" where Job_Id="10";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEES2 set Department_Id="60" where Job_Id="12";
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update EMPLOYEES2 set Department_Id="50" where Job_Id="13";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update EMPLOYEES2 set Department_Id="90" where Job_Id="20";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from EMPLOYEES2;
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+| Employee_Id | First_name | Last_name | Email               | Phone_Number | Hire_Date  | Job_Id | commission_pct | Manager_Id | Department_Id | salary |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+|         111 | Tuyikunde  | Ange      | tuyikunde@gmail.com | 0739013759   | 0000-00-00 |     10 | C2000          |         70 |            70 |    100 |
+|         112 | Uwimana    | carine    | uwimana@gmail.com   | 07390145321  | 0000-00-00 |     11 | C3000          |        333 |             0 |   4800 |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com   | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |            60 |   4900 |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com   | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |            60 |   4900 |
+|         114 | Iganze     | florance  | iganze@gmail.com    | 0784903211   | 0000-00-00 |     13 | C5000          |         80 |            50 |   5000 |
+|         115 | Ishimwe    | AUSTIN    | ishimwe@gmail.com   | 07910234456  | 0000-00-00 |     20 | C6000          |         90 |            90 |   6000 |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select*from EMPLOYEES2 where salary>=4800;
++-------------+------------+-----------+-------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+| Employee_Id | First_name | Last_name | Email             | Phone_Number | Hire_Date  | Job_Id | commission_pct | Manager_Id | Department_Id | salary |
++-------------+------------+-----------+-------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+|         112 | Uwimana    | carine    | uwimana@gmail.com | 07390145321  | 0000-00-00 |     11 | C3000          |        333 |             0 |   4800 |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |            60 |   4900 |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |            60 |   4900 |
+|         114 | Iganze     | florance  | iganze@gmail.com  | 0784903211   | 0000-00-00 |     13 | C5000          |         80 |            50 |   5000 |
+|         115 | Ishimwe    | AUSTIN    | ishimwe@gmail.com | 07910234456  | 0000-00-00 |     20 | C6000          |         90 |            90 |   6000 |
++-------------+------------+-----------+-------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select*from EMPLOYEES2 where Last_Name like "%AUSTIN";
++-------------+------------+-----------+-------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+| Employee_Id | First_name | Last_name | Email             | Phone_Number | Hire_Date  | Job_Id | commission_pct | Manager_Id | Department_Id | salary |
++-------------+------------+-----------+-------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+|         115 | Ishimwe    | AUSTIN    | ishimwe@gmail.com | 07910234456  | 0000-00-00 |     20 | C6000          |         90 |            90 |   6000 |
++-------------+------------+-----------+-------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+1 row in set (0.00 sec)
+
+mysql> select*from EMPLOYEES2 where Last_Name like "AUSTIN%";
++-------------+------------+-----------+-------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+| Employee_Id | First_name | Last_name | Email             | Phone_Number | Hire_Date  | Job_Id | commission_pct | Manager_Id | Department_Id | salary |
++-------------+------------+-----------+-------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+|         115 | Ishimwe    | AUSTIN    | ishimwe@gmail.com | 07910234456  | 0000-00-00 |     20 | C6000          |         90 |            90 |   6000 |
++-------------+------------+-----------+-------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+1 row in set (0.00 sec)
+
+mysql> select*from EMPLOYEES2 where Department_Id IN(60,70,80);
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+| Employee_Id | First_name | Last_name | Email               | Phone_Number | Hire_Date  | Job_Id | commission_pct | Manager_Id | Department_Id | salary |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+|         111 | Tuyikunde  | Ange      | tuyikunde@gmail.com | 0739013759   | 0000-00-00 |     10 | C2000          |         70 |            70 |    100 |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com   | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |            60 |   4900 |
+|         113 | Uwirora    | Rebecca   | uwirora@gmail.com   | 07234565321  | 0000-00-00 |     12 | C4000          |        444 |            60 |   4900 |
++-------------+------------+-----------+---------------------+--------------+------------+--------+----------------+------------+---------------+--------+
+3 rows in set (0.00 sec)
+
+
+PART C: OUESTION 10.
+
+
+MariaDB [exam]> create table sales(saleNo int(4)primary key auto_increment, salesname varchar(255),Branch varchar(255),saleamount int(4),DOB varchar(255));
+Query OK, 0 rows affected (0.028 sec)
+
+MariaDB [exam]> desc sales;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| saleNo     | int(4)       | NO   | PRI | NULL    | auto_increment |
+| salesname  | varchar(255) | YES  |     | NULL    |                |
+| Branch     | varchar(255) | YES  |     | NULL    |                |
+| saleamount | int(4)       | YES  |     | NULL    |                |
+| DOB        | varchar(255) | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.026 sec)
+
+MariaDB [exam]> insert into sales values('',"NKUNDIMANA JAQUE","GATSIBO",28000,"21-DEC-2009");
+Query OK, 1 row affected, 1 warning (0.014 sec)
+
+MariaDB [exam]> insert into sales values('',"KAGABO ADRIEL","NYAMAGABE",30000,"2-DEC-2010");
+Query OK, 1 row affected, 1 warning (0.015 sec)
+
+MariaDB [exam]> insert into sales values('',"KALIMA ERINESTE","KIGALI",35000,"22-NOV-2011");
+Query OK, 1 row affected, 1 warning (0.016 sec)
+
+MariaDB [exam]> insert into sales values('',"MUHIRE INNOCENT","NYANZA",40000,"2-JAN-2005");
+Query OK, 1 row affected, 1 warning (0.004 sec)
+
+MariaDB [exam]> insert into sales values('',"KAGABO ERIC","HUYE",45000,"7-JUL-2004");
+Query OK, 1 row affected, 1 warning (0.004 sec)
+
+MariaDB [exam]> SELECT * FROM sales;
++--------+-----------------+-----------+------------+-------------+
+| saleNo | salesname       | Branch    | saleamount | DOB         |
++--------+-----------------+-----------+------------+-------------+
+|      1 | NKUNDIMANA JAQUE  |GATSIBO |  25000       21-DEC-2009 |
+|      2 | KAGABO ADRIEL    | NYANZA |    30000 |   2-DEC-2010  |
+|      3 | KALIMA ERISTE|    KIGALI    |      35000 | 22-NOV-2011 |
+|      4 | MUHIRE INNOCENT | NYANZA    |      40000 | 2-JAN-2005  |
+|      5 | KAGABO ERIC     | HUYE      |      45000 | 7-JUL-2004  |
++--------+-----------------+-----------+------------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [exam]> select SUM(saleamount) from sales;
++-----------------+
+| SUM(saleamount) |
++-----------------+
+|          175000 |
++-----------------+
+1 row in set (0.002 sec)
+
+MariaDB [exam]> select AVG(saleamount) from sales;
++-----------------+
+| AVG(saleamount) |
++-----------------+
+|      35000.0000 |
++-----------------+
+1 row in set (0.001 sec)
+
+MariaDB [exam]> select salesname,DOB from sales where DOB="21-DEC-2009";
++----------------+-------------+
+| salesname      | DOB         |
++----------------+-------------+
+| NKUNDIMANA JAQUE | 21-DEC-2009 |
++----------------+-------------+
+1 row in set (0.001 sec)
+
+MariaDB [exam]> select salesname ,DOB from sales ORDER BY DOB ASC;
++-----------------+-------------+
+| salesname       | DOB         |
++-----------------+-------------+
+| KAGABO ADRIEL  | 2-DEC-2010  |
+| MUHIRE INNOCENT | 2-JAN-2005  |
+| NKUNDIMANA JAQUE  | 21-DEC-2009 |
+| KALIMA EVARISTE | 22-NOV-2011 |
+| KAGABO ERIC | 7-JUL-2004  |
++-----------------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [exam]> select salesname, DOB from sales ORDER BY DOB DESC;
++-----------------+-------------+
+| salesname       | DOB         |
++-----------------+-------------+
+| KAGABO ERIC | 7-JUL-2004  |
+| KALIMA EVARISTE | 22-NOV-2011 |
+| NkUNDIMANA JAQUE  | 21-DEC-2009 |
+| MUHIRE INNOCENT | 2-JAN-2005  |
+| KARAGWA ADRIEL  | 2-DEC-2010  |
++-----------------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [exam]>
